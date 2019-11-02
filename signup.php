@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	
+
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>Register</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom fonts for this template -->
+		<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Custom fonts for this template -->
+		<link href="assets/plugins/themify/css/themify.css" rel="stylesheet" type="text/css">
+
+		<!-- Angular Tooltip Css -->
+		<link href="assets/plugins/angular-tooltip/angular-tooltips.css" rel="stylesheet">
+
+		<!-- Page level plugin CSS -->
+		<link href="assets/plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+		<!-- Page level plugin CSS -->
+		<link href="assets/dist/css/animate.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="assets/dist/css/glovia.css" rel="stylesheet">
+		<link href="assets/dist/css/glovia-responsive.css" rel="stylesheet">
+
+		<!-- Custom styles for Color -->
+		<link id="jssDefault" rel="stylesheet" href="assets/dist/css/skins/default.css">
+	</head>
+	<?php
+	include 'connect.php';
+	if (isset($_POST['submit'])) {
+		$fullname = mysqli_escape_string($conn,$_POST['fullname']);
+		$email = mysqli_escape_string($conn,$_POST['email']);
+		$username = mysqli_escape_string($conn,$_POST['username']);
+		$password =  mysqli_escape_string($conn,$_POST['password']);
+
+		//submit
+		$sqli = "INSERT INTO users (fullname,email,username,password)VALUES(
+													'$fullname',
+													'$email',
+													'$username',
+													'$password')";
+		$query = mysqli_query($conn,$sqli);
+       if ($query){
+			echo '<div class="alert alert-success wow fadeInLeft delay-03s"  role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Well done!</strong> Registration successfull!!
+			</div>';
+			//echo "<script> location.href='login.php'; </script>";
+	   }
+	   else{
+		echo '<div class="alert alert-success wow fadeInLeft delay-03s"  role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>Well done!</strong> Registration failed!!
+		</div>';
+	   }
+
+	}
+	?>
+
+	<body class="red-skin">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="hidden-xs hidden-sm col-lg-6 col-md-6 theme-bg">
+				<div class="clearfix">
+				<img class="img-responsive" src="assets/dist/img/logo.png" alt="Logo Icon">
+			<div class="logo-title-container text-center">
+				<br>
+				<br>
+				<h3 class="cl-white text-upper">Crime Scene Analyis System</h3>
+				
+				 <div class="copy animated fadeIn">
+					<p class="cl-white"><br> Data Storage Module.</p>
+				</div>
+			</div> <!-- .logo-title-container -->
+		</div>
+	</div>
+
+				<div class="col-12 col-sm-12 col-md-6 col-lg-6 login-sidebar animated fadeInRightBig">
+
+					<div class="login-container animated fadeInRightBig">
+
+						<h2 class="text-center text-upper">SignUp </h2>
+						<form class="form-horizontal" action = "" Method = "POST">
+							
+							<div class="form-group">
+								<input type="text"  name = "fullname" class="form-control" id="inputEmail3" placeholder="Full Name">
+								<i class="fa fa-user"></i>
+							</div>
+							
+							<div class="form-group">
+								<input type="text" class="form-control" name = "username" placeholder="Username">
+								<i class="fa fa-user"></i>
+							</div>
+							<div class="form-group">
+								<input type="email" name = "email" class="form-control" placeholder="Email">
+								<i class="fa fa-user"></i>
+							</div>
+							
+							<div class="form-group help">
+								<input type="password" name = "password" class="form-control" placeholder="Password">
+								<i class="fa fa-lock"></i>
+								<a href="#" class="pass-view fa fa-eye"></a>
+							</div>
+							
+						
+							
+							
+							<div class="form-group">
+								<div class="flexbox align-items-center">
+									<button type="submit" class="btn theme-bg" name = "submit">Submit</button>
+									<p>Already Have An Account <a href="login.php" data-toggle="tooltip" class="theme-cl" data-original-title="Login">Log In Here.</a></p>
+								</div>
+							</div>
+						
+						</form>
+					</div> 
+					<!-- .login-container -->
+					
+				</div> <!-- .login-sidebar -->
+			</div> <!-- .row -->
+		</div>
+		
+
+		<!-- Bootstrap core JavaScript-->
+		<script src="assets/plugins/jquery/jquery.min.js"></script>
+		<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Core plugin JavaScript-->
+		<script src="assets/plugins/jquery-easing/jquery.easing.min.js"></script>
+		
+		 <!-- Slick Slider Js -->
+		<script src="assets/plugins/slick-slider/slick.js"></script>
+		
+		<!-- Slim Scroll -->
+		<script src="assets/plugins/slim-scroll/jquery.slimscroll.min.js"></script>
+		
+		<!-- Angular Tooltip -->
+		<script src="assets/plugins/angular-tooltip/angular.js"></script>
+		<script src="assets/plugins/angular-tooltip/angular-tooltips.js"></script>
+		<script src="assets/plugins/angular-tooltip/index.js"></script>
+		
+		<!-- Custom scripts for all pages-->
+		<script src="assets/dist/js/glovia.js"></script>
+		<script src="assets/dist/js/jQuery.style.switcher.js"></script>
+		
+		<script>
+		  $('.dropdown-toggle').dropdown()
+		</script>
+		
+	</body>
+
+
+<!-- Mirrored from codeminifier.com/new-glovia/glovia/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Oct 2019 09:29:39 GMT -->
+</html>
